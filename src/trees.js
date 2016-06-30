@@ -58,12 +58,24 @@ Tree.prototype.trim = function (cm){
 }
 
 var PearTree = new Tree(5); /////////////////will log out a tree with 5cm height and 10 branches
-PearTree.grow(29); /////// grow is working ////////
+// PearTree.grow(29); /////// grow is working ////////
 console.log("PearTree", PearTree)////////////
 
 var OakTree = new Tree(20); /////////////////
-OakTree.trim(5); //////trim function is working////////
+// OakTree.trim(5); //////trim function is working////////
 console.log("OakTree", OakTree)////////////
+
+///////will need to make look to append trees to DOM///////////
+function growPearTree
+
+
+for (var i = 0; i < 30; i++) {
+$('.output').append(`<h5 id="pear">Pear Tree is now ` + PearTree.height + ` Feet tall and has ` + PearTree.branches + ` branches` + `</h5>`);
+$('.output').append(`<h5 id="oak">Oak Tree is now ` + OakTree.height + ` Feet tall and has ` + OakTree.branches + ` branches` + `</h5>`)
+}
+
+
+
 
 
 
