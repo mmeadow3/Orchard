@@ -65,21 +65,23 @@ var OakTree = new Tree(20); /////////////////
 // OakTree.trim(5); //////trim function is working////////
 console.log("OakTree", OakTree)////////////
 
-///////will need to make look to append trees to DOM///////////
-function growTrees () {
-	for (var i = 0; i < 30; i++) {
-	PearTree.grow(5)
+ 
+var maxLoops = 30;
+var counter = 0;
+
+(function next() {
+    if (counter++ >= maxLoops) return;
+
+    setTimeout(function() {
+        	PearTree.grow(5)
 	OakTree.grow(10)
 $('.output').append(`<h5 id="pear">Pear Tree is now ` + PearTree.height + ` Feet tall and has ` + PearTree.branches + ` branches` + `</h5>`);
 $('.output').append(`<h5 id="oak">Oak Tree is now ` + OakTree.height + ` Feet tall and has ` + OakTree.branches + ` branches` + `</h5>`)
-}
-}
-growTrees();
+        next();
+    }, 100);
+})();
 
-
-
-
-
+	
 
 
 
