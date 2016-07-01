@@ -15,10 +15,10 @@
 // Each time the height of a tree increases by 10, the value of branch should increase by one.++++++++++++++++++++++
 // Create a PearTree instance of Tree. var PearTree = new Tree(); ++++++++++++++++
 // Create an OakTree instance of Tree. +++++++++++++++++++++++
-// Every second, increase the height the pear tree by some integer value and increase the height the oak tree by some integer value that is larger than what you used for the pear tree.
-// Also output the current height of each tree and how many branches it has to the DOM
+// Every second, increase the height the pear tree by some integer value and increase the height the oak tree by some integer value that is larger than what you used for the pear tree.+++++++++++++++
+// Also output the current height of each tree and how many branches it has to the DOM ++++++++++++++++++
 // Every tenth time the trees are grown, invoke the trim method. Pass one value to the method for the pear tree, and a larger value to the method on the oak tree.
-// Stop growing the trees after they have grown 30 times.
+// Stop growing the trees after they have grown 30 times.+++++++++++++++
 
 
 /////////Plant///////////
@@ -72,13 +72,19 @@ var counter = 0;
 (function next() {
     if (counter++ >= maxLoops) return;
 
-    setTimeout(function() {
-        	PearTree.grow(5)
+  setTimeout(function() {
+  PearTree.grow(5)
 	OakTree.grow(10)
+	if (counter%10 === 0){
+	PearTree.trim(4)
+	OakTree.trim(6)
+	$('.output').append('<h2>***Cut the TREES!!!!!!***</h2>')}
+
 $('.output').append(`<h5 id="pear">Pear Tree is now ` + PearTree.height + ` Feet tall and has ` + PearTree.branches + ` branches` + `</h5>`);
 $('.output').append(`<h5 id="oak">Oak Tree is now ` + OakTree.height + ` Feet tall and has ` + OakTree.branches + ` branches` + `</h5>`)
+
         next();
-    }, 100);
+    }, 1000);
 })();
 
 	
